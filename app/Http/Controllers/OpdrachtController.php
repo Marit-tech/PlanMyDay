@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Opdracht;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class OpdrachtController extends Controller
@@ -21,6 +22,25 @@ class OpdrachtController extends Controller
             'duratie' => ['required', 'integer', 'min:1'],
             'opdrachtomschrijving' => ['required', 'string'],
         ]);
+        $start = Carbon::parse(
+            $validated['datum'] . ' ' . $validated['tijd']
+        );
+        $eind = $start->copy()->addMinutes((int) $validated['duratie']);
+
+        $conflict = Opdracht::where('datum', '<', $eind)
+        ->get()
+        ->contains(function ($opdracht) use ($start) {
+            $bestaandEind = Carbon::parse($opdracht->datum)
+            ->addMinutes($opdracht->duratie);
+            return $bestaandEind > $start;
+        });
+        if ($conflict) {
+            return back()
+            ->withInput()
+            ->withErrors(
+                ['tijd' => 'Dit tijdstip is niet beschikbaar. Er staat al een andere opdracht gepland.']
+            );
+        }
     
         Opdracht::create([
             'klant_id' => $request->user()->id,
