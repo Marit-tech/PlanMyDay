@@ -15,8 +15,7 @@
         "vite": "^7.0.7"
     },
     "dependencies": {
-        "@fullcalendar/timegrid": "^6.1.21",
-        "@fullcalendar/web-component": "^7.1.0",
+        "fullcalendar": "^7.1.0",
         "temporal-polyfill": "^1.0.5"
     }
 }

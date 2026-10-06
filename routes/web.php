@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\OpdrachtController;
+use App\Http\Controllers\AgendaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -25,3 +26,7 @@ Route::get('/opdracht/inplannen', [OpdrachtController::class, 'create'])
 Route::post('/opdracht/inplannen', [OpdrachtController::class, 'store'])
     ->middleware(['auth', 'role:klant'])
     ->name('opdracht.store');
+
+Route::get('/agenda', [AgendaController::class, 'index'])
+    ->middleware('auth')
+    ->name('agenda.index');
