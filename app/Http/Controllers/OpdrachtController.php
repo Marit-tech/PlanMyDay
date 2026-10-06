@@ -56,6 +56,11 @@ class OpdrachtController extends Controller
     }
     public function show(Opdracht $opdracht)
     {
+        $user = auth()->user();
+    
+        if ($user->role === 'klant' && $opdracht->klant_id !== $user->id) {
+            abort(403, 'Je hebt geen toegang tot deze opdracht.');
+        }
         return view('opdrachten.show', compact('opdracht'));
     }
 }
