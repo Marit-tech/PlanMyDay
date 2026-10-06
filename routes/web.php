@@ -27,6 +27,10 @@ Route::post('/opdracht/inplannen', [OpdrachtController::class, 'store'])
     ->middleware(['auth', 'role:klant'])
     ->name('opdracht.store');
 
+Route::get('/opdracht/{opdracht}', [OpdrachtController::class, 'show'])
+    ->middleware('auth')
+    ->name('opdracht.show');
+
 Route::get('/agenda', [AgendaController::class, 'index'])
     ->middleware('auth')
     ->name('agenda.index');

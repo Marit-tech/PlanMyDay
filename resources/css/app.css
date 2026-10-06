@@ -131,7 +131,7 @@
     width: 100%;
     max-width: 550px;
     background-color: white;
-    padding: 40px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
@@ -218,4 +218,17 @@
     .opdracht-card h1 {
         font-size: 22px;
     }
+}
+.agenda-button {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 10px 15px;
+    background-color: #4a90e2;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.agenda-button:hover {
+    background-color: #357abd;
 }

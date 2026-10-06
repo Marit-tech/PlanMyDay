@@ -13,6 +13,9 @@
 
     <main>
         <h1>Agenda</h1>
+            <a href="{{ route('opdracht.create') }}" class="agenda-button">
+                Opdracht inplannen
+            </a>
 
         <div id="calendar" data-events='@json($events)'></div>
     </main>

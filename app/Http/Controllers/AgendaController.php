@@ -29,6 +29,7 @@ class AgendaController extends Controller
                     'title' => $opdracht->titel,
                     'start' => $start->format('Y-m-d\TH:i:s'),
                     'end' => $end->format('Y-m-d\TH:i:s'),
+                    'url' => route('opdracht.show', $opdracht),
                 ];
             });
 

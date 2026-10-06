@@ -54,4 +54,8 @@ class OpdrachtController extends Controller
         ->route('opdracht.create')
         ->with('success', 'De opdracht is succesvol ingepland.');
     }
+    public function show(Opdracht $opdracht)
+    {
+        return view('opdrachten.show', compact('opdracht'));
+    }
 }
