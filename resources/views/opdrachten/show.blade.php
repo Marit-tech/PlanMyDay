@@ -34,6 +34,35 @@
                 <strong>Opdrachtomschrijving:</strong><br>
                 {{ $opdracht->opdrachtomschrijving }}
             </p>
+            @if(auth()->user()->role === 'lid')
+                @php
+                $eindtijd = $opdracht->datum->copy()
+                ->addMinutes((int) $opdracht->duratie);
+                @endphp
+                    
+                @if(now()->gte($eindtijd))
+                    @if($errors->has('beschrijving'))
+                        <div class="error-message">
+                            {{ $errors->first('beschrijving') }}
+                        </div>
+                    @endif
+                    
+                    <form method="POST" action="{{ route('opdracht.beschrijving.update', $opdracht) }}">
+                        @csrf
+                        @method('PATCH')
+                        <div class="beschrijving-header">
+                            <label for="beschrijving">Beschrijving</label>
+                            <button type="submit" class="beschrijving-button">Beschrijving opslaan</button>
+                        </div>
+                        <textarea id="beschrijving" name="beschrijving" required>{{ old('beschrijving', $opdracht->beschrijving) }}</textarea>
+                    </form>
+                @else
+                    <p>
+                        <strong>Beschrijving:</strong><br>
+                        Je kunt pas na afloop van de opdracht een beschrijving toevoegen.
+                    </p>
+                @endif
+            @endif
         </div>
     </main>
 </body>

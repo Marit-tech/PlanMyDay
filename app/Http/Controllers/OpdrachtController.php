@@ -63,4 +63,25 @@ class OpdrachtController extends Controller
         }
         return view('opdrachten.show', compact('opdracht'));
     }
+
+    public function updateBeschrijving(Request $request, Opdracht $opdracht)
+    {
+        $eindtijd = $opdracht->datum->copy()->addMinutes((int) $opdracht->duratie);
+        if (now()->lt($eindtijd)) {
+            return back()->withErrors([
+                'beschrijving' => 'Je kunt pas na afloop van de opdracht een beschrijving toevoegen.'
+            ]);
+        }
+        $validated = $request->validate([
+            'beschrijving' => ['required', 'string'],
+        ]);
+    
+        $opdracht->update([
+            'beschrijving' => $validated['beschrijving'],
+        ]);
+    
+        return redirect()
+        ->route('opdracht.show', $opdracht)
+        ->with('success', 'De beschrijving is opgeslagen.');
+    }
 }

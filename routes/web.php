@@ -20,17 +20,21 @@ Route::get('/home', function () {
 })->middleware('auth')->name('home');
 
 Route::get('/opdracht/inplannen', [OpdrachtController::class, 'create'])
-    ->middleware(['auth', 'role:klant'])
-    ->name('opdracht.create');
+->middleware(['auth', 'role:klant'])
+->name('opdracht.create');
 
 Route::post('/opdracht/inplannen', [OpdrachtController::class, 'store'])
-    ->middleware(['auth', 'role:klant'])
-    ->name('opdracht.store');
+->middleware(['auth', 'role:klant'])
+->name('opdracht.store');
 
 Route::get('/opdracht/{opdracht}', [OpdrachtController::class, 'show'])
-    ->middleware('auth')
-    ->name('opdracht.show');
+->middleware('auth')
+->name('opdracht.show');
+
+Route::patch('/opdracht/{opdracht}/beschrijving', [OpdrachtController::class, 'updateBeschrijving'])
+->middleware(['auth', 'role:lid'])
+->name('opdracht.beschrijving.update');
 
 Route::get('/agenda', [AgendaController::class, 'index'])
-    ->middleware('auth')
-    ->name('agenda.index');
+->middleware('auth')
+->name('agenda.index');

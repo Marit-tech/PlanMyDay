@@ -232,3 +232,23 @@
 .agenda-button:hover {
     background-color: #357abd;
 }
+
+/* Beschrijving toevoegen */
+.beschrijving-header{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.beschrijving-header label{
+    margin: 0;
+}
+.beschrijving-button {
+    padding: 6px 25px;
+    border: none;
+    border-radius: 6px;
+    background-color: #4a90e2;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
