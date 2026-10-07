@@ -63,6 +63,19 @@
                     </p>
                 @endif
             @endif
+            
+            @if(auth()->user()->role === 'klant')
+                @php
+                $eindtijd = $opdracht->datum->copy()
+                ->addMinutes((int) $opdracht->duratie);
+                @endphp
+                @if(now()->gte($eindtijd))
+                    <p>
+                        <strong>Beschrijving:</strong><br>
+                        {{ $opdracht->beschrijving ?? 'Er is nog geen beschrijving toegevoegd.' }}
+                    </p>
+                @endif
+            @endif
         </div>
     </main>
 </body>
