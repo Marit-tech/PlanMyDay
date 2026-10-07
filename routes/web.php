@@ -15,10 +15,6 @@ Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/home', function () {
-    return view('home');
-})->middleware('auth')->name('home');
-
 Route::get('/opdracht/inplannen', [OpdrachtController::class, 'create'])
 ->middleware(['auth', 'role:klant'])
 ->name('opdracht.create');
@@ -37,4 +33,4 @@ Route::patch('/opdracht/{opdracht}/beschrijving', [OpdrachtController::class, 'u
 
 Route::get('/agenda', [AgendaController::class, 'index'])
 ->middleware('auth')
-->name('agenda.index');
+->name('agenda');

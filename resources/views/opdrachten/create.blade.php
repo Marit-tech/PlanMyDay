@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opdracht inplannen - PlanMyDay</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body class="opdracht-page">
-    <main class="opdracht-container">
-        <div class="opdracht-card">
+<x-layout>
+    <x-slot:title>
+        Opdracht
+    </x-slot>
+    <x-header />
+    <main class="container">
+        <div class="card">
             <h1>Opdracht inplannen</h1>
             @if (session('success'))
             <div class="success-message">
@@ -77,11 +73,10 @@
                         required
                     >{{ old('opdrachtomschrijving') }}</textarea>
                 </div>
-                <button type="submit" class="opdracht-button">
+                <button type="submit" class="save-button">
                     Opdracht inplannen
                 </button>
             </form>
         </div>
     </main>
-</body>
-</html>
+</x-layout>

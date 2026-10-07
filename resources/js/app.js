@@ -26,6 +26,15 @@ document.addEventListener('DOMContentLoaded', function () {
         initialView: 'timeGridWeek',
         weekends: false,
         locale: nlLocale,
+        allDaySlot: false,
+        height: 'calc(100vh - 135px)',
+        slotMinTime: '09:00:00',
+        slotMaxTime: '19:00:00',
+        nowIndicator: true,
+        dayHeaderFormat: {
+            weekday: 'short',
+            day: 'numeric'
+        },
         slotHeaderFormat: {
             hour: '2-digit',
             minute: '2-digit',

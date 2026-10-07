@@ -12,6 +12,10 @@ class LoginController extends Controller
     {
         return view('auth.login');
     }
+    public function showUser()
+    {
+        return view('user');
+    }
 
     public function login(Request $request)
     {
@@ -23,7 +27,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->route('home');
+            return redirect()->route('agenda');
         }
 
         return back()

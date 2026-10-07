@@ -9,246 +9,136 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
-
-/* Inlogpagina */
-.login-page {
+.page {
     margin: 0;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
+    background-color: #ebeef1;
 }
-
-.login-container {
-    min-height: 100vh;
+.container {
+    min-height: 86vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 20px;
+    padding: 10px;
 }
-
-.login-card {
+.card {
     width: 100%;
     max-width: 400px;
     background-color: white;
     padding: 40px;
+    margin-top: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.login-card h1 {
-    margin-top: 0;
-    margin-bottom: 30px;
+.card h1, .agenda-card h1{
+    margin: 0 0 10px 0;
     text-align: center;
-    font-size: 28px;
+    font-size: 22px;
 }
-
-.form-group {
-    margin-bottom: 20px;
-}
-/* Formuliervelden */
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.form-group input {
+/* Agenda */
+.agenda-card {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #cccccc;
-    border-radius: 6px;
-    font-size: 16px;
-    box-sizing: border-box;
-}
-
-.form-group input:focus {
-    outline: none;
-    border-color: #4a90e2;
-}
-/* Inlogknop */
-.login-button {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 6px;
-    background-color: #4a90e2;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.login-button:hover {
-    background-color: #357abd;
-}
-/* Foutmelding */
-.error-message {
-    margin-bottom: 20px;
-    padding: 12px;
-    background-color: #f8d7da;
-    border: 1px solid #f5c2c7;
-    border-radius: 6px;
-    color: #842029;
-    font-size: 14px;
-}
-/* Mobiele weergave */
-@media (max-width: 600px) {
-    .login-container {
-        padding: 15px;
-    }
-
-    .login-card {
-        padding: 25px;
-    }
-
-    .login-card h1 {
-        font-size: 24px;
-    }
-}
-
-/* Opdracht inplannen */
-.opdracht-page {
-    margin: 0;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
-}
-
-.opdracht-container {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-}
-
-.opdracht-card {
-    width: 100%;
-    max-width: 550px;
+    max-width: 1200px;
     background-color: white;
-    padding: 20px;
+    padding: 5px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
-
-.opdracht-card h1 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    text-align: center;
-    font-size: 28px;
-}
-
-/* Velden opdrachtformulier */
-.opdracht-card form > div {
-    margin-bottom: 10px;
-}
-
-.opdracht-card label {
-    display: block;
-    margin-bottom: 2px;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.opdracht-card input,
-.opdracht-card textarea {
-    width: 100%;
-    padding: 6px;
-    border: 1px solid #cccccc;
-    border-radius: 6px;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    box-sizing: border-box;
-}
-
-.opdracht-card input:focus,
-.opdracht-card textarea:focus {
-    outline: none;
-    border-color: #4a90e2;
-}
-
-.opdracht-card textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-/* Knop */
-.opdracht-button {
-    width: 100%;
-    padding: 8px;
-    border: none;
-    border-radius: 6px;
-    background-color: #4a90e2;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.opdracht-button:hover {
-    background-color: #357abd;
-}
-
-/* Succesmelding */
-.success-message {
-    margin-bottom: 10px;
-    padding: 8px;
-    background-color: #d1e7dd;
-    border: 1px solid #badbcc;
-    border-radius: 6px;
-    color: #0f5132;
-    font-size: 14px;
-}
-
-/* Mobiele weergave */
-@media (max-width: 600px) {
-    .opdracht-container {
-        padding: 15px;
-    }
-
-    .opdracht-card {
-        padding: 25px;
-    }
-
-    .opdracht-card h1 {
-        font-size: 22px;
-    }
-}
-.agenda-button {
+.button {
     display: inline-block;
-    margin-top: 5px;
-    padding: 10px 15px;
-    background-color: #4a90e2;
-    color: white;
-    text-decoration: none;
+    padding: 5px 10px;
     border-radius: 5px;
 }
-
-.agenda-button:hover {
-    background-color: #357abd;
+.button:hover {
+    color: #4a90e2;
 }
 
-/* Beschrijving toevoegen */
+/* Opdracht */
+.card label {
+    display: block;
+    font-weight: bold;
+}
+.card input, .card textarea {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 5px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+.card textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+.save-button {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    background-color: #4a90e2;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.save-button:hover {
+    background-color: #357abd;
+}
+table{
+    width: 100%;
+    table-layout: fixed;
+}
+th{
+    width: 60%;
+    text-align: left;
+    padding: 5px;
+}
+
+/* Beschrijving */
+.beschrijving-button {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #4a90e2;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+}
 .beschrijving-header{
     display: flex;
     align-items: center;
     gap: 15px;
 }
-.beschrijving-header label{
-    margin: 0;
+.beschrijving-table th{
+    width: 40%;
 }
-.beschrijving-button {
-    padding: 6px 25px;
-    border: none;
-    border-radius: 6px;
-    background-color: #4a90e2;
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
+
+/* Navigatieheader */
+.main-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #dddddd;
+    padding: 8px 10px;
+}
+.main-header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.main-logo {
+    font-size: 22px;
+    color: #4a90e2;
+    text-decoration: none;
+}
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+.main-nav a:hover, .main-nav button:hover{
+    color: #4a90e2;
     cursor: pointer;
 }
