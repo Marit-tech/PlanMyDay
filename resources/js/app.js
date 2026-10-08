@@ -24,6 +24,11 @@ document.addEventListener('DOMContentLoaded', function () {
             timeGridPlugin
         ],
         initialView: 'timeGridWeek',
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: ''
+        },
         weekends: false,
         locale: nlLocale,
         allDaySlot: false,
