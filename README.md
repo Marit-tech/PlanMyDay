@@ -1,59 +1,79 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# PlanMyDay – lokale installatie
+## 1.
+Installeer vooraf:
+- PHP (een versie die Laravel 12 ondersteunt, minimaal PHP 8.2), inclusief de benodigde PHP-extensies;
+- Composer;
+- Node.js en npm;
+- MariaDB of MySQL;
+- een terminal, bijvoorbeeld die van Visual Studio Code.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Controleer in de terminal:
+```bash
+php -v
+composer --version
+node -v
+npm -v
+```
 
-## About Laravel
+## 2.
+Download de project-ZIP en pak deze uit
+Open vervolgens de hoofdmap van PlanMyDay in een terminal. Hierin hoort onder andere het bestand `artisan` te staan.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 3.
+Voer in de projectmap uit:
+```bash
+composer install
+npm install
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 4.
+Maak een kopie van `.env.example` en noem die `.env`. Genereer daarna een applicatiesleutel:
+```bash
+php artisan key:generate
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 5.
+Start MariaDB/MySQL en maak een lege database aan. Pas in `.env` de database-instellingen aan op de lokale installatie:
+```dotenv
+APP_TIMEZONE=Europe/Amsterdam
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=planmyday
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## Learning Laravel
+De gebruikersnaam en het wachtwoord hierboven zijn voorbeelden. Vul de gegevens van de eigen database in.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+Voer daarna uit:
+```bash
+php artisan config:clear
+php artisan migrate
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 6. Testaccounts / gebruikers
+Voer uit:
+```bash
+php artisan db:seed
+```
 
-## Laravel Sponsors
+## 7. Applicatie starten
+Open een terminal in de projectmap.
+```bash
+composer run dev
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Open daarna de URL die Laravel in de terminal toont. Standaard is dat:
+```text
+http://127.0.0.1:8000
+```
+Houd de terminal open zolang je de applicatie gebruikt.
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 8. Controleren of alles werkt
+1. Open de loginpagina en log in als klant.
+2. Open de agenda en controleer of de weekweergave zichtbaar is.
+3. Plan als klant een opdracht in en controleer of deze in de agenda verschijnt.
+4. Log uit en log in als lid.
+5. Open een opdracht en controleer of de details zichtbaar zijn.
+6. Controleer bij een afgelopen opdracht of het lid een beschrijving kan opslaan.
