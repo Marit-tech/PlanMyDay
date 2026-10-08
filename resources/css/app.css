@@ -30,6 +30,27 @@
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
+/* Foutmelding */
+.error-message {
+    margin-bottom: 20px;
+    padding: 12px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c2c7;
+    border-radius: 6px;
+    color: #842029;
+    font-size: 14px;
+}
+/* Succesmelding */
+.success-message {
+    margin-bottom: 10px;
+    padding: 8px;
+    background-color: #d1e7dd;
+    border: 1px solid #badbcc;
+    border-radius: 6px;
+    color: #0f5132;
+    font-size: 14px;
+}
+
 
 .card h1, .agenda-card h1{
     margin: 0 0 10px 0;
